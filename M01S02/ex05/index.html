@@ -7,15 +7,17 @@
     name="viewport"
     content="width=device-width, initial-scale=1.0"
   >
-  <title>Internal Script</title>
-
-  <script>
-    console.log('Numele Nostru');
-  </script>
+  <title>Ordinea de interpretare</title>
 </head>
 
 <body>
+  <script>
+    console.log('I run first');
+  </script>
 
+  <button onclick="console.log('Hello World');">Hello!</button>
+
+  <script src="app.js"></script>
 </body>
 
 </html>

@@ -1,10 +1,11 @@
-let person = {
+var person = {
   name: 'Dragos',
   surname: 'Iordache',
   age: 32,
   petOwner: false,
   skills: {
     html: true,
+    css: true,
     javaScript: true,
   },
   friends: {
@@ -16,19 +17,18 @@ let person = {
     steven: {
       name: 'Steven',
       surname: 'Stevenson',
-      age: '31',
+      age: 31,
     },
     carol: {
       name: 'Carol',
       surname: 'Carolson',
-      age: '29',
+      age: 29,
     },
   },
 };
 
 console.log(person.friends.larry);
 console.log(person.skills.javaScript);
-
 // Afiseaza varsta prietenei Carol
 console.log(person.friends.carol.age);
 
@@ -39,24 +39,21 @@ console.log(2020 - person.friends.larry.age);
 // Calculeaza diferenta si afiseaza propozitia:
 // “Steven este cu xx ani mai mare decat Larry.”
 // folosind proprietatile name
-
 console.log(
   person.friends.steven.name +
     ' este cu ' +
     (person.friends.steven.age - person.friends.larry.age) +
     ' ani mai mare decat ' +
-    person.friends.larry.age +
+    person.friends.larry.name +
     '.',
 );
 
-/* Afiseaza propozitia: “Prietenul meu Steven
-Stevenson are xx ani” folosind doar proprietatile
- */
-
+// Afiseaza propozitia: “Prietenul meu Steven Stevenson are xx ani”
+// folosind doar proprietatile
 console.log(
   'Prietenul meu ' +
     person.friends.steven.name +
-    '' +
+    ' ' +
     person.friends.steven.surname +
     ' are ' +
     person.friends.steven.age +
@@ -64,6 +61,7 @@ console.log(
 );
 
 // Afiseaza propozitia: “Prietenii mei sunt: Steven, Carol si Larry.
+// interpolare
 console.log(
   `Prietenii mei sunt: ${person.friends.steven.name}, ${person.friends.carol.name} si ${person.friends.larry.name}.`,
 );

@@ -1,4 +1,4 @@
-let person = {
+var person = {
   name: 'Dragos',
   surname: 'Iordache',
   age: 32,
@@ -17,7 +17,7 @@ let person = {
     },
     {
       name: 'Carol',
-      surname: 'Carloson',
+      surname: 'Carolson',
       age: 29,
     },
   ],
@@ -33,8 +33,10 @@ console.log(
 // Nu folosi valoarea din arrayul de skills.
 console.log('Sunt ' + person.name + ' si acum invat JavaScript.');
 
-// Afiseaza propozitia “Am x prieteni: Larry, Steve si Carol.”
+// Afiseaza propozitia “Am x prieteni: Larry, Steven si Carol.”
 // Foloseste proprietatea length si apeleaza direct proprietatile name ale obiectelor.
 console.log(
-  ` Am ${person.friends.length} prieteni: ${person.friends[0].name}, ${person.friends[1].name} si ${person.friends[2].name}.`,
+  `Am ${person.friends.length}
+  prieteni: ${person.friends[0].name},
+  ${person.friends[1].name} si ${person.friends[2].name}.`,
 );

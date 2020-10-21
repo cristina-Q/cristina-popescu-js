@@ -118,10 +118,21 @@ for (let i = 0; i < friendsLength; i++) {
 }
 
 console.warn(`
-  Folosind proprietatea length a arrayului skills si o bucla for,
+  9.Folosind proprietatea length a arrayului skills si o bucla for,
   afiseaza in ordine inversa elementele arrayului skills.
   Atentie, va trebui sa numeri invers, de la length la 0.
 `);
 for (let i = skillsLength - 1; i >= 0; i--) {
   console.log(person.skills[i]);
+}
+
+console.warn(` Folosind obiectul person si un for, afiseaza
+in consola skillurile pe care le are persoana`);
+for (let i = 0; i < skillsLength; i++) {
+  console.log(person.skills[i]);
+}
+
+console.warn(`10.In mod similar, afiseaza skillurile care incep cu c`);
+for (i = 0; i < skillsLength; i++) {
+  if (person.skills[i].startsWith('c')) console.log(person.skills[i]);
 }

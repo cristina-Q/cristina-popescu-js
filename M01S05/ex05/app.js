@@ -37,3 +37,26 @@ console.log(
   Ma numesc ${person.getName()} si am ${person.getAge()} ani!
 `.trim(),
 );
+
+console.warn(
+  `5. Afiseaza numele intreg al persoanei folosind metoda getName()`,
+);
+console.log(person.getName());
+
+console.warn(`6. Afiseaza varsta persoanei folosind metoda getAge()`);
+console.log(person.getAge());
+
+console.warn(`
+7. Afiseaza anul de nastere al persoanei, folosind anul curent si metoda getName()
+`);
+
+let birthYear = year - person.getAge();
+console.log(birthYear);
+
+console.warn(`
+  8. Afiseaza propozita: “Ma numesc xxx yyy m-am nascut acum aa ani in anul zzzz!”
+`);
+
+console.log(`
+Ma numesc ${person.getName()} m-am nascut acum ${person.getAge()} ani in anul ${birthYear}!
+`);

@@ -9,7 +9,9 @@ class Vehicle {
   }
 
   displaySpeed() {
-    console.log(`Viteza curenta este: ${this.speed}`);
+    console.log(
+      `Viteza curenta a vehiculului ${this.make} este: ${this.speed}`,
+    );
   }
 
   getSpeed(format) {
@@ -31,7 +33,7 @@ class Vehicle {
     this.setSpeed(0); //de fiecare data cand manipulam viteza trecem prin filtrul de protectie setSpeed
   }
 
-  setSpeed(speed) {
+  /*   setSpeed(speed) {
     if (speed > this.topSpeed) {
       this.speed = this.topSpeed;
 
@@ -48,6 +50,19 @@ class Vehicle {
 
     this.speed = speed;
     this.displaySpeed();
+  } */
+
+  setSpeed(speed) {
+    if (speed > this.topSpeed) {
+      this.speed = this.topSpeed;
+      this.displaySpeed();
+    } else if (speed < this.topReverseSpeed) {
+      this.speed = this.topReverseSpeed;
+      this.displaySpeed();
+    } else {
+      this.speed = speed;
+      this.displaySpeed();
+    }
   }
 }
 
@@ -114,3 +129,7 @@ Seteaza viteza noii instante la 140, apoi ruleaza metoda accelerate(), ce observ
 let audi = new Car('Audi', 'blue', 3, 140, -50);
 audi.setSpeed(140);
 audi.accelerate();
+
+// Ex02 * -> refactor setSpeed pentru a functiona cu
+// if else si modificarea  metodei displaySpeed astfel
+// incat sa spuna Viteza curent a vehiculului "make" este:

@@ -9,13 +9,12 @@ class Vehicle {
   }
 
   displaySpeed() {
-    console.log(
-      `Viteza curenta a vehiculului ${this.make} este: ${this.speed}`,
-    );
+    console.log(`Viteza curenta este: ${this.speed}`);
   }
 
   getSpeed(format) {
-    let speed = format ? `${this.speed}km/h` : this.speed;
+    let speed = format === true ? `${this.speed} km/h` : this.speed;
+
     return speed;
   }
 
@@ -30,10 +29,10 @@ class Vehicle {
   }
 
   stop() {
-    this.setSpeed(0); //de fiecare data cand manipulam viteza trecem prin filtrul de protectie setSpeed
+    this.setSpeed(0);
   }
 
-  /*   setSpeed(speed) {
+  setSpeed(speed) {
     if (speed > this.topSpeed) {
       this.speed = this.topSpeed;
 
@@ -50,27 +49,12 @@ class Vehicle {
 
     this.speed = speed;
     this.displaySpeed();
-  } */
-
-  setSpeed(speed) {
-    if (speed > this.topSpeed) {
-      this.speed = this.topSpeed;
-      this.displaySpeed();
-    } else if (speed < this.topReverseSpeed) {
-      this.speed = this.topReverseSpeed;
-      this.displaySpeed();
-    } else {
-      this.speed = speed;
-      this.displaySpeed();
-    }
   }
 }
 
-/*
-------------------------------------------------------------- */
 class Car extends Vehicle {
   constructor(make, color, speed, topSpeed, topReverseSpeed) {
-    super(make, color, 4, speed, topSpeed, topReverseSpeed); //constructorul clasei Car
+    super(make, color, 4, speed, topSpeed, topReverseSpeed);
   }
 }
 
@@ -79,37 +63,36 @@ class Bicycle extends Vehicle {
     super(make, color, 2, speed, topSpeed, 0);
   }
 
-  /*   decelerate() {
-    //let speed = this.speed--;
-    //if (speed < 0) {}
-    //scade variabila inainte de a face expresia
+  decelerate() {
+    // let speed = this.speed--;
+    // if (speed < 0) {}
     if (--this.speed < this.topReverseSpeed) {
       this.speed = this.topReverseSpeed;
     }
 
     this.displaySpeed();
-  } */
+  }
 }
 
-/* Instantiaza o bicicleta (marca Pegas, culoare red, viteza curenta 8,
-si viteza maxima 20). O poti stoca intr-o variabila numita bike.
-Seteaza viteza instantei bike la 2
-Foloseste metoda decelerate() de trei ori, ce observi?
-Seteaza viteza instantei bike la -10, ce observi? */
+// Instantiaza o bicicleta
+// (marca Pegas, culoare red, viteza curenta 8, si viteza maxima 20).
+// O poti stoca intr-o variabila numita bike.
+// Seteaza viteza instantei bike la 2
+// Foloseste metoda decelerate() de trei ori, ce observi?
+// Seteaza viteza instantei bike la -10, ce observi?
 let bike = new Bicycle('Pegas', 'red', 8, 20);
 bike.setSpeed(2);
 bike.decelerate();
 bike.decelerate();
 bike.decelerate();
 
-/* Creeaza o noua clasa care extinde Vehicle in mod similar cu Bicycle, numita Tricycle.
-Diferenta fiind ca o tricicleta are trei roti.
-Instantiaza o tricicleta (marca Tryke, culoare red, viteza curenta 2, viteza minima -2, viteza maxima 9).
-O poti stoca intr-o variabila numita trike.
-Seteaza viteza instantei trike la 0
-Foloseste metoda decelerate() de trei ori, ce observi?
-Seteaza viteza instantei trike la -10, ce observi?
- */
+// Creeaza o noua clasa care extinde Vehicle in mod similar
+// cu Bicycle, numita Tricycle. Diferenta fiind ca o tricicleta are trei roti.
+// Instantiaza o tricicleta (marca Tryke, culoare red, viteza curenta 2,
+// viteza minima -2, viteza maxima 9). O poti stoca intr-o variabila numita trike.
+// Seteaza viteza instantei trike la 0
+// Foloseste metoda decelerate() de trei ori, ce observi?
+// Seteaza viteza instantei trike la -10, ce observi?
 class Tricycle extends Vehicle {
   constructor(make, color, speed, topSpeed, topReverseSpeed) {
     super(make, color, 3, speed, topSpeed, topReverseSpeed);
@@ -122,14 +105,9 @@ trike.decelerate();
 trike.decelerate();
 trike.decelerate();
 
-/* Creeaza o masina noua (marca Audi, culoare blue, viteza curenta 3,
-viteza maxima 140, viteza minima -50).
-Seteaza viteza noii instante la 140, apoi ruleaza metoda accelerate(), ce observi?
- */
+// Creeaza o masina noua (marca Audi, culoare blue, viteza curenta 3,
+// viteza maxima 140, viteza minima -50).
+// Seteaza viteza noii instante la 140, apoi ruleaza metoda accelerate(), ce observi?
 let audi = new Car('Audi', 'blue', 3, 140, -50);
 audi.setSpeed(140);
 audi.accelerate();
-
-// Ex02 * -> refactor setSpeed pentru a functiona cu
-// if else si modificarea  metodei displaySpeed astfel
-// incat sa spuna Viteza curent a vehiculului "make" este:

@@ -1,5 +1,3 @@
-// un obiect literal (template) din care poate deriva alte obiecte
-
 let Car = {
   make: '',
   color: '',
@@ -7,21 +5,17 @@ let Car = {
   speed: 0,
   topSpeed: 100,
   topReverseSpeed: -50,
-
   displaySpeed: function () {
-    console.log(`
-    Vehicolul ${this.make} se deplaseaza cu viteza ${this.speed}km/h
-    `);
+    console.log(
+      `Vehiculul ${this.make} se deplasa cu viteaza ${this.speed}km/h.`,
+    );
   },
-
   accelerate: function () {
     this.setSpeed(this.speed + 1);
   },
-
   decelerate: function () {
     this.setSpeed(this.speed - 1);
   },
-
   setSpeed: function (speed) {
     if (speed > this.topSpeed) {
       this.speed = this.topSpeed;
@@ -33,11 +27,10 @@ let Car = {
 
     this.displaySpeed();
   },
-
   flashLights: function () {
     this.turnLightsOn();
-    setTimeout(this.turnLightOff, 1000 * 3);
-    // 10 zile * 24 h * 60m * 60s * 1000ms
+    setTimeout(this.turnLightsOff, 1000 * 3);
+    // 10 * 24 * 60 * 60 * 1000
   },
 };
 
@@ -48,5 +41,10 @@ audi.wheels = 4;
 audi.speed = 0;
 audi.test = 'test';
 audi.topSpeed = 140;
+
+// Adauga metoda setSpeed(), proprietatile topSpeed si topReverseSpeed
+// si implementeaza protectiile deja cunoscute.
+// Seteaza topSpeed la 140 apoi ruleaza metoda setSpeed() pentru a face viteza curenta 140.
+// Ruleaza metoda accelerate().
 audi.setSpeed(140);
 audi.accelerate();
